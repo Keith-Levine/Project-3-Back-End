@@ -1,6 +1,7 @@
 const express = require('express')
 const movies = express.Router()
 
+const Movie = require('../models/movies.js')
 
 // curl 'http://localhost:3003/movies'
 movies.get('/', (req, res) => {
