@@ -7,4 +7,4 @@ const movieSchema = mongoose.Schema({
   category:{type:String, required: true} 
 })
 
-module.exports = mongoose.model('Movie', movieSchema)
+module.exports = mongoose.model('Movie', movieSchema);
