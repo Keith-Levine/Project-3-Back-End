@@ -29,9 +29,9 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
-const bookmarksController = require('./controllers/bookmarks.js')
+const songsController = require('./controllers/songs.js')
 
-app.use('/bookmarks/', bookmarksController)
+app.use('/songs/', songsController)
 
 app.listen(PORT, () => {
     console.log('listening on', PORT)
