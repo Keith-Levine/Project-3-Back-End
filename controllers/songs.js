@@ -14,12 +14,14 @@ songs.get('/', (req, res) => {
   })
 
 // curl -X POST -H "Content-Type: application/json" -d '{"name":"world kindness"}' 'http://localhost:3003/songs'
-songs.post('/', async (req, res) => {
+
+
+songs.post('/', (req, res) => {
     Song.create(req.body, (error, createdSong) => {
       if (error) {
         res.status(400).json({ error: error.message })
       }
-      res.status(200).send(createdSong) 
+      res.status(200).json(createdSong) 
     })
 })
 
