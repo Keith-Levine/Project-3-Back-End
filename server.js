@@ -30,10 +30,10 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 const songsController = require('./controllers/songs.js')
-const moviesController = require('./controllers/movies.js')
+// const moviesController = require('./controllers/movies.js')
 
 app.use('/songs/', songsController)
-app.use('/movies/', moviesController)
+// app.use('/movies/', moviesController)
 
 app.listen(PORT, () => {
     console.log('listening on', PORT)
