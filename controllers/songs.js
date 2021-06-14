@@ -1,12 +1,49 @@
 const express = require('express')
-const bookmarks = express.Router()
+const songs = express.Router()
 
-const Bookmark = require('../models/bookmarks.js')
+const Song = require('../models/songs.js')
 
-mongoose.connect('mongodb://localhost:27017/songs', {
-     useNewUrlParser: true,
-     useUnifiedTopology: true
+// curl 'http://localhost:3003/songs'
+songs.get('/', (req, res) => {
+    Song.find({}, (err, foundSongs) => {
+      if (err) {
+        res.status(400).json({ error: err.message })
+      }
+      res.status(200).json(foundSongs)
+    })
+  })
+
+// curl -X POST -H "Content-Type: application/json" -d '{"name":"world kindness"}' 'http://localhost:3003/songs'
+
+songs.post('/', async (req, res) => {
+    Song.create(req.body, (error, createdSong) => {
+      if (error) {
+        res.status(400).json({ error: error.message })
+      }
+      res.status(200).send(createdSong) 
+    })
 })
-mongoose.connection.once('open', ()=>{
-    console.log('connected to mongo :)')
+
+// curl -X DELETE 'http://localhost:3003/songs/id' (replace the id with the id from your curl request)
+songs.delete('/:id', (req, res) => {
+    Song.findByIdAndRemove(req.params.id, (err, deletedSong) => {
+      if (err) {
+        res.status(400).json({ error: err.message })
+      }
+      res.status(200).json({
+          'deleted_song': deletedSong
+      })
+    })
 })
+
+//   curl -X PUT -H "Content-Type: application/json" -d '{"title":"I updated this"}' 'http://localhost:3003/songs/5cc738d41f84cd0a2e1225bb'
+  songs.put('/:id', (req, res) => {
+    Song.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedSong) => {
+      if (err) {
+        res.status(400).json({ error: err.message })
+      }
+      res.status(200).json(updatedSong)
+    })
+  })
+
+module.exports = songs
