@@ -43,8 +43,8 @@ app.use('/songs/', songsController)
 app.use('/movies/', moviesController)
 
 app.get('/', function(req, res) {
-  response.set('Access-Control-Allow-Origin', '*');
-  response.sendFile(__dirname + '/message.json');
+  res.set('Access-Control-Allow-Origin', '*');
+  res.sendFile(__dirname + '/message.json');
 });
 
 app.listen(PORT, () => {
