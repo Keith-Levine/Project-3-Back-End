@@ -35,7 +35,6 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
-app.use(cors('Access-Control-Allow-Origin', '*'))
 
 const songsController = require('./controllers/songs.js')
 const moviesController = require('./controllers/movies.js')
@@ -47,6 +46,10 @@ app.use('/movies/', moviesController)
 //   res.set('Access-Control-Allow-Origin', '*');
 //   res.sendFile(__dirname + '/message.json');
 // });
+
+app.get('/with-cors', cors(), (req, res, next) => {
+  res.json({ msg: 'WHOAH with CORS it works! 🔝 🎉' })
+})
 
 app.listen(PORT, () => {
     console.log('listening on', PORT)
