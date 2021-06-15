@@ -20,7 +20,7 @@ mongoose.connection.once('open', ()=> {
     console.log('connected to mongo :)')
 })
 
-const whitelist = ['http://localhost:3000', 'https://sleepy-tor-42367.herokuapp.com/']
+const whitelist = ['http://localhost:3000', 'https://sleepy-tor-42367.herokuapp.com']
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
