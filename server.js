@@ -39,6 +39,10 @@ const moviesController = require('./controllers/movies.js')
 app.use('/songs/', songsController)
 app.use('/movies/', moviesController)
 
+app.get('/', (req, res)=>{
+  res.send('server up');
+});
+
 app.listen(PORT, () => {
     console.log('listening on', PORT)
   })
