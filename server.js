@@ -24,7 +24,7 @@ mongoose.connection.once('open', ()=> {
 
 const whitelist = ['http://localhost:3000', 'https://sleepy-tor-42367.herokuapp.com/']
 const corsOptions = {
-  'Access-Control-Allow-Origin': '*',
+
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true)
@@ -42,8 +42,9 @@ const moviesController = require('./controllers/movies.js')
 app.use('/songs/', songsController)
 app.use('/movies/', moviesController)
 
-app.get('/', (req, res)=>{
-  res.send('server up');
+app.get('/allow-cors', function(req, res) {
+  response.set('Access-Control-Allow-Origin', '*');
+  response.sendFile(__dirname + '/message.json');
 });
 
 app.listen(PORT, () => {
