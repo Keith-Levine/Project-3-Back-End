@@ -13,7 +13,7 @@ songs.get('/', (req, res) => {
     })
   })
 
-// curl -X POST -H "Content-Type: application/json" -d '{"name":"world kindness"}' 'http://localhost:3003/songs'
+// curl -X POST -H "Content-Type: application/json" -d '{"artist":"world kindness"}' 'https://sleepy-tor-42367.herokuapp.com/songs/'
 
 
 songs.post('/', (req, res) => {
