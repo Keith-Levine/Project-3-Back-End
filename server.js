@@ -39,15 +39,6 @@ const moviesController = require('./controllers/movies.js')
 app.use('/songs/', songsController)
 app.use('/movies/', moviesController)
 
-// app.get('/', function(req, res) {
-//   res.set('Access-Control-Allow-Origin', '*');
-//   res.sendFile(__dirname + '/message.json');
-// });
-
-// app.get('/with-cors', cors(), (req, res, next) => {
-//   res.json({ msg: 'WHOAH with CORS it works! 🔝 🎉' })
-// })
-
 app.get('/', (req, res) => {
   res.send('server up')
 })
