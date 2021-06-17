@@ -8,7 +8,7 @@ The objective of this project was to build a backend application using MongoDB A
 
 <h2>App Link</h2>
 
-[Project 3] https://sleepy-tor-42367.herokuapp.com/
+[Project 3 MERN Stack](https://sleepy-tor-42367.herokuapp.com/)
 
 <h2>Stretch Goals</h2>
 
