@@ -1,6 +1,6 @@
 <h1>General Assembly Project #3</h1>
 
-Project 3 Backend API
+Project 3 Backend - API
 
 <h2>Overview</h2>
 
@@ -13,7 +13,12 @@ The objective of this project was to build a backend application using MongoDB A
 <h2>Stretch Goals</h2>
 
 Add user/ login utilizing bcrypt
-Add a third party API 
+Add a third party API for songs
+Connect APIs and be able to add to favorites
+
+<h2>Future Improvements</h2>
+
+Move API to backend to hide API Key
 
 <h2>Creators</h2>
 
